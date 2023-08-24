@@ -20,7 +20,6 @@ import { fileURLToPath } from 'url';
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 
-
 /***************************** Connect to Mongo *****************************/
 
 import { connect } from 'mongoose';
@@ -118,7 +117,7 @@ export const createHash = (password) => bcrypt.hashSync(password, bcrypt.genSalt
 export const isValidPassword = (password, hashPassword) => bcrypt.compareSync(password, hashPassword);
 
 /******************************* FakerJS *******************************/
-import { Faker, es, fakerES } from '@faker-js/faker';
+import { Faker, es } from '@faker-js/faker';
 
 const faker = new Faker({ locale: [es] });
 
@@ -152,7 +151,6 @@ export function generateProduct() {
   return {
     id: faker.database.mongodbObjectId(),
     title: faker.commerce.productName(),
-    description: fakerES.commerce.productDescription(),
     /* description: faker.commerce.productDescription(), */
     price: faker.commerce.price(),
     thumbnail: faker.internet.avatar(),
